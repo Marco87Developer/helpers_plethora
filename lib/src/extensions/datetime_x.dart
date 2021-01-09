@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:intl/date_symbol_data_local.dart';
+import 'package:intl/intl.dart';
+
+import 'string_x.dart';
 
 /// This extension provides additional functionality for the `DateTime` class.
 ///
@@ -13,6 +17,11 @@ extension DateTimeX on DateTime {
 
     return isIncluded || coincidesWithEnd || coincidesWithStart;
   }
+
+  /// Returns the number of the last day of the month, starting from this
+  /// date-time.
+  ///
+  int get lastMonthDay => DateTime(year, month + 1, 0).day;
 
   /// Returns `true` if this date is after or at same moment as [other].
   ///
@@ -46,5 +55,160 @@ extension DateTimeX on DateTime {
     final bool coincidesWithEnd = isAtSameMomentAs(end);
 
     return isIncluded || coincidesWithEnd || coincidesWithStart;
+  }
+
+  /// Returns the localized string representation of this date with:
+  ///
+  /// * the *short* name of the day of the week
+  ///
+  /// of this date. The localization is setted by [locale]. You can assure that
+  /// the 1º letter will be uppercase by setting [firstUpperCase] to `true`.
+  ///
+  String toStringE({
+    String? locale,
+    bool firstUpperCase = false,
+  }) {
+    initializeDateFormatting(locale);
+
+    return firstUpperCase
+        ? DateFormat.E(locale).format(this).firstUpperCase()
+        : DateFormat.E(locale).format(this);
+  }
+
+  /// Returns the localized string representation of this date with:
+  ///
+  /// * the *complete* name of the day of the week
+  ///
+  /// of this date. The localization is setted by [locale]. You can assure that
+  /// the 1º letter will be uppercase by setting [firstUpperCase] to `true`.
+  ///
+  String toStringEEEE({
+    String? locale,
+    bool firstUpperCase = false,
+  }) {
+    initializeDateFormatting(locale);
+
+    return firstUpperCase
+        ? DateFormat.EEEE(locale).format(this).firstUpperCase()
+        : DateFormat.EEEE(locale).format(this);
+  }
+
+  /// Returns the localized string representation of:
+  ///
+  /// * this time
+  ///
+  /// in the “hh:mm” format. The localization is setted by [locale].
+  ///
+  String toStringHm({
+    String? locale,
+  }) {
+    initializeDateFormatting(locale);
+
+    return DateFormat.Hm(locale).format(this).firstUpperCase();
+  }
+
+  /// Returns the localized string representation of this date with:
+  ///
+  /// * the *short* month name
+  ///
+  /// this date belongs to. The localization is setted by [locale]. You can
+  /// assure that the 1º letter will be uppercase by setting [firstUpperCase] to
+  /// `true`.
+  ///
+  String toStringMMM({
+    String? locale,
+    bool firstUpperCase = false,
+  }) {
+    initializeDateFormatting(locale);
+
+    return firstUpperCase
+        ? DateFormat.MMM(locale).format(this).firstUpperCase()
+        : DateFormat.MMM(locale).format(this);
+  }
+
+  /// Returns the localized string representation of this date with:
+  ///
+  /// * the *complete* month name
+  ///
+  /// this date belongs to. The localization is setted by [locale]. You can
+  /// assure that the 1º letter will be uppercase by setting [firstUpperCase] to
+  /// `true`.
+  ///
+  String toStringMMMM({
+    String? locale,
+    bool firstUpperCase = false,
+  }) {
+    initializeDateFormatting(locale);
+
+    return firstUpperCase
+        ? DateFormat.MMMM(locale).format(this).firstUpperCase()
+        : DateFormat.MMMM(locale).format(this);
+  }
+
+  /// Returns the string representation of this date in the “yyyy-mm-dd” format.
+  ///
+  String toStringyMMd() => DateFormat().addPattern('y-MM-dd').format(this);
+
+  /// Returns the localized string representation of this date with:
+  ///
+  /// * the [year],
+  /// * the *short* [month] name,
+  /// * the [day] number.
+  ///
+  /// The localization is setted by [locale].
+  ///
+  String toStringyMMMd({
+    String? locale,
+  }) {
+    initializeDateFormatting(locale);
+
+    return DateFormat.yMMMd(locale).format(this);
+  }
+
+  /// Returns the localized string representation of this date with:
+  ///
+  /// * the [year],
+  /// * the *short* [month] name,
+  /// * the *short* [day] name,
+  /// * the [day] number.
+  ///
+  /// The localization is setted by [locale].
+  ///
+  String toStringyMMMEd({
+    String? locale,
+  }) {
+    initializeDateFormatting(locale);
+
+    return DateFormat.yMMMEd(locale).format(this);
+  }
+
+  /// Returns the localized string representation of this date with:
+  ///
+  /// * the [year],
+  /// * the *short* [month] name.
+  ///
+  /// The localization is setted by [locale].
+  ///
+  String toStringyMMM({
+    String? locale,
+  }) {
+    initializeDateFormatting(locale);
+
+    return DateFormat.yMMM(locale).format(this);
+  }
+
+  /// Returns the localized string representation of this date with:
+  ///
+  /// * the [year],
+  /// * the *complete* [month] name.
+  ///
+  /// The localization is setted by [locale].
+  ///
+  String toStringyMMMM({
+    String? locale,
+  }) {
+    initializeDateFormatting(locale);
+
+    return DateFormat.yMMMM(locale).format(this);
   }
 }

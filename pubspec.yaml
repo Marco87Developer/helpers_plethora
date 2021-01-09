@@ -1,6 +1,6 @@
 name: helpers_plethora
 description: A set of helpers who extend various classes.
-version: 0.1.0-nullsafety.1
+version: 0.2.0-nullsafety.1
 homepage: https://marco87.dev
 
 environment:
@@ -11,6 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
 
+  intl: ^0.17.0-nullsafety.2
   pedantic: ^1.10.0-nullsafety.3
 
 dev_dependencies:

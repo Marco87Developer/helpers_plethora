@@ -22,6 +22,16 @@ void main() {
     expect(dateTime5.belongsTo(dateTimeRange), false);
   });
 
+  test('lastMonthDay()', () {
+    final DateTime dateTime1 = DateTime(2020, 12, 31);
+    final DateTime dateTime2 = DateTime(2020, 2, 5);
+    final DateTime dateTime3 = DateTime(2021, 1, 10);
+
+    expect(dateTime1.lastMonthDay, 31);
+    expect(dateTime2.lastMonthDay, 29);
+    expect(dateTime3.lastMonthDay, 31);
+  });
+
   test('isAfterOrAtSameMomentAs', () {
     final DateTime dateTime = DateTime(2020, 1, 1);
     final DateTime dateTimeBefore = DateTime(2019, 1, 1);
