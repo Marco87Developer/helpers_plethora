@@ -65,8 +65,8 @@ extension DateTimeX on DateTime {
   /// the 1º letter will be uppercase by setting [firstUpperCase] to `true`.
   ///
   String toStringE({
-    String? locale,
     bool firstUpperCase = false,
+    String? locale,
   }) {
     initializeDateFormatting(locale);
 
@@ -83,8 +83,8 @@ extension DateTimeX on DateTime {
   /// the 1º letter will be uppercase by setting [firstUpperCase] to `true`.
   ///
   String toStringEEEE({
-    String? locale,
     bool firstUpperCase = false,
+    String? locale,
   }) {
     initializeDateFormatting(locale);
 
@@ -116,8 +116,8 @@ extension DateTimeX on DateTime {
   /// `true`.
   ///
   String toStringMMM({
-    String? locale,
     bool firstUpperCase = false,
+    String? locale,
   }) {
     initializeDateFormatting(locale);
 
@@ -135,8 +135,8 @@ extension DateTimeX on DateTime {
   /// `true`.
   ///
   String toStringMMMM({
-    String? locale,
     bool firstUpperCase = false,
+    String? locale,
   }) {
     initializeDateFormatting(locale);
 
@@ -148,6 +148,21 @@ extension DateTimeX on DateTime {
   /// Returns the string representation of this date in the “yyyy-mm-dd” format.
   ///
   String toStringyMMd() => DateFormat().addPattern('y-MM-dd').format(this);
+
+  /// Returns the localized string representation of this date with:
+  ///
+  /// * the [year],
+  /// * the *short* [month] name.
+  ///
+  /// The localization is setted by [locale].
+  ///
+  String toStringyMMM({
+    String? locale,
+  }) {
+    initializeDateFormatting(locale);
+
+    return DateFormat.yMMM(locale).format(this);
+  }
 
   /// Returns the localized string representation of this date with:
   ///
@@ -180,21 +195,6 @@ extension DateTimeX on DateTime {
     initializeDateFormatting(locale);
 
     return DateFormat.yMMMEd(locale).format(this);
-  }
-
-  /// Returns the localized string representation of this date with:
-  ///
-  /// * the [year],
-  /// * the *short* [month] name.
-  ///
-  /// The localization is setted by [locale].
-  ///
-  String toStringyMMM({
-    String? locale,
-  }) {
-    initializeDateFormatting(locale);
-
-    return DateFormat.yMMM(locale).format(this);
   }
 
   /// Returns the localized string representation of this date with:
