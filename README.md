@@ -1,4 +1,4 @@
-![](https://img.shields.io/badge/pub-0.2.0--nullsafety.1-yellow)
+![](https://img.shields.io/badge/pub-v1.0.0-blue)
 
 # Helpers
 
