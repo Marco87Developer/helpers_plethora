@@ -11,8 +11,8 @@ The following additional functionality are provided in this extension:
 * `belongsTo()`. Returns `true` if this date belongs to a date-time range.
 * `isAfterOrAtSameMomentAs()`. Returns `true` if this date is *after* or at same moment as other.
 * `isBeforeOrAtSameMomentAs()`. Returns `true` if this date is *before* or at same moment as other.
-* `isBetween()`. Returns `true` if this date is between `start` and `end` (start < this < `end`).
-* `isBetweenOrAtSameMomentAs()`. Returns `true` if this date is between `start` and `end` or at same moment as `start` or as `end` (`start` ⩽ this ⩽ `end`).
+* `isBetween()`. Returns `true` if this date is between `start` and `end` (`start` < this date < `end`).
+* `isBetweenOrAtSameMomentAs()`. Returns `true` if this date is between `start` and `end` or at same moment as `start` or as `end` (`start` ⩽ this date ⩽ `end`).
 
 ## `extension` on `DateTimeRange` class
 
